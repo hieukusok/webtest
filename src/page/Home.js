@@ -26,8 +26,8 @@ class Home extends Component {
 						<div className="row">
 							<div className="col-lg-8 col-md-10 mx-auto">
 								<div className="site-heading">
-									<h1 style={{ color: '#00c4ff' }}>Clean Blog</h1>
-									<span className="subheading">A Blog Theme by Start Bootstrap</span>
+									<h1 style={{ color: '#00c4ff' }}>Shop Now</h1>
+									<span className="subheading btn-tcc">Welcome to the store!</span>
 								</div>
 							</div>
 						</div>
@@ -38,7 +38,7 @@ class Home extends Component {
 					<div className="row">
 						<div className="col-lg-8 col-md-10 mx-auto">
 							{this.state.sanpham.map((sp) => (
-								<>
+								<div key={sp.id}>
 									<div className="post-preview">
 										<img src={`${sp.hinh}`} alt="" width="166" height="166" />
 										<Link to={`/sanpham/${sp.id}`}>
@@ -47,16 +47,16 @@ class Home extends Component {
 										</Link>
 										<p className="post-meta">
 											Posted by
-											<a href="#">Start Bootstrap</a>
+											<a href="#!">Start Bootstrap</a>
 											on September 24, 2019
 										</p>
 									</div>
 									<hr />
-								</>
+								</div>
 							))}
 							{/* Pager */}
 							<div className="clearfix">
-								<a className="btn btn-primary float-right" href="#">
+								<a className="btn btn-primary float-right" href="#!">
 									Older Posts →
 								</a>
 							</div>

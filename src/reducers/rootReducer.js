@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
+import danhMucReducer from './danhMucReducer';
 
 const rootReducer = combineReducers({
-	auth: authReducer
+	auth: authReducer,
+	dm: danhMucReducer
 });
 export default rootReducer;

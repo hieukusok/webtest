@@ -52,7 +52,7 @@ class CTDanhMuc extends Component {
 										</Link>
 										<p className="post-meta">
 											Posted by
-											<a href="#">Start Bootstrap</a>
+											<a href="#!">Start Bootstrap</a>
 											on September 24, 2019
 										</p>
 									</div>
@@ -61,7 +61,7 @@ class CTDanhMuc extends Component {
 							))}
 							{/* Pager */}
 							<div className="clearfix">
-								<a className="btn btn-primary float-right" href="#">
+								<a className="btn btn-primary float-right" href="#!">
 									Older Posts →
 								</a>
 							</div>

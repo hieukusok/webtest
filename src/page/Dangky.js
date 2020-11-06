@@ -55,7 +55,7 @@ class Dangky extends Component {
 						<div className="row">
 							<div className="col-lg-8 col-md-10 mx-auto">
 								<div className="site-heading">
-									<h1>Dang ky</h1>
+									<h1 className="btn-dn">Beauty Shop</h1>
 								</div>
 							</div>
 						</div>
@@ -67,6 +67,7 @@ class Dangky extends Component {
 							{/* Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. */}
 							{/* WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! */}
 							{/* To use the contact form, your site must be on a live web host with PHP! The form will not work locally! */}
+							<h1 className="text-center">Đăng Ký</h1>
 							<form onSubmit={this.handleSubmit} name="sentMessage" id="contactForm">
 								<div className="control-group">
 									<div className="form-group floating-label-form-group controls">

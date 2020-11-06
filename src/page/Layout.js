@@ -3,10 +3,12 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { dangxuatThunk } from '../thunks/authThunk';
+import { danhMucThunk } from '../thunks/danhMucThunk';
 
-const mapDispatchToProps = { dangxuatThunk };
+const mapDispatchToProps = { dangxuatThunk, danhMucThunk };
 const mapStateToProps = (state) => ({
-	dangnhap: state.auth.dangnhap
+	dangnhap: state.auth.dangnhap,
+	danhmuc: state.dm.danhmuc
 });
 class Home extends Component {
 	constructor(props) {
@@ -18,10 +20,7 @@ class Home extends Component {
 		this.handleDangxuat = this.handleDangxuat.bind(this);
 	}
 	componentDidMount() {
-		axios.get(`http://127.0.0.1:8000/api/danhmuc`).then((res) => {
-			const danhmuc = res.data.data;
-			this.setState({ danhmuc });
-		});
+		danhMucThunk();
 		axios.get(`http://127.0.0.1:8000/api/thuonghieu`).then((res) => {
 			const thuonghieu = res.data.data;
 			this.setState({ thuonghieu });
@@ -37,7 +36,7 @@ class Home extends Component {
 				{/* Navigation */}
 				<nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 					<div className="container">
-						<Link className="navbar-brand" to="/">
+						<Link className="navbar-brand btn-tc" to="/">
 							WebSite
 						</Link>
 						<button
@@ -71,12 +70,10 @@ class Home extends Component {
 										Danh muc
 									</a>
 									<div className="dropdown-menu">
-										{this.state.danhmuc.map((dm) => (
-											<>
-												<Link className="dropdown-item" to={`/danhmuc/${dm.id}`}>
-													{dm.ten_dm}
-												</Link>
-											</>
+										{this.props.danhmuc.dsdm.map((dm) => (
+											<Link className="dropdown-item" to={`/danhmuc/${dm.id}`} key={dm.id}>
+												{dm.ten_dm}
+											</Link>
 										))}
 									</div>
 								</li>
@@ -93,11 +90,9 @@ class Home extends Component {
 									</a>
 									<div className="dropdown-menu">
 										{this.state.thuonghieu.map((th) => (
-											<>
-												<Link className="dropdown-item" to={`/thuonghieu/${th.id}`}>
-													{th.ten_th}
-												</Link>
-											</>
+											<Link className="dropdown-item" to={`/thuonghieu/${th.id}`} key={th.id}>
+												{th.ten_th}
+											</Link>
 										))}
 									</div>
 								</li>
@@ -150,7 +145,7 @@ class Home extends Component {
 							<div className="col-lg-8 col-md-10 mx-auto">
 								<ul className="list-inline text-center">
 									<li className="list-inline-item">
-										<a href="#">
+										<a href="#!">
 											<span className="fa-stack fa-lg">
 												<i className="fas fa-circle fa-stack-2x" />
 												<i className="fab fa-twitter fa-stack-1x fa-inverse" />
@@ -158,7 +153,7 @@ class Home extends Component {
 										</a>
 									</li>
 									<li className="list-inline-item">
-										<a href="#">
+										<a href="#!">
 											<span className="fa-stack fa-lg">
 												<i className="fas fa-circle fa-stack-2x" />
 												<i className="fab fa-facebook-f fa-stack-1x fa-inverse" />
@@ -166,7 +161,7 @@ class Home extends Component {
 										</a>
 									</li>
 									<li className="list-inline-item">
-										<a href="#">
+										<a href="#!">
 											<span className="fa-stack fa-lg">
 												<i className="fas fa-circle fa-stack-2x" />
 												<i className="fab fa-github fa-stack-1x fa-inverse" />

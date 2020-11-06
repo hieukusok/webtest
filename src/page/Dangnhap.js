@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from './Layout';
 import { connect } from 'react-redux';
 import { dangnhapThunk } from '../thunks/authThunk';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = (state) => ({
 	dangnhap: state.auth.dangnhap
@@ -47,7 +48,7 @@ class Dangnhap extends Component {
 						<div className="row">
 							<div className="col-lg-8 col-md-10 mx-auto">
 								<div className="site-heading">
-									<h1>Dang nhap</h1>
+									<h1 className="btn-dn">Beauty Shop</h1>
 								</div>
 							</div>
 						</div>
@@ -59,6 +60,7 @@ class Dangnhap extends Component {
 							{/* Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. */}
 							{/* WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! */}
 							{/* To use the contact form, your site must be on a live web host with PHP! The form will not work locally! */}
+							<h1 className="text-center">Đăng Nhập</h1>
 							<form onSubmit={this.handleSubmit} name="sentMessage" id="contactForm">
 								{this.state.errorMessage && (
 									<div class="alert alert-danger" role="alert">
@@ -116,6 +118,11 @@ class Dangnhap extends Component {
 										Login
 									</button>
 								)}
+								<button className="btn btn-primary ml-3" type="submit">
+									<Link className="btn-dk" to="/dangky">
+										Resgister
+									</Link>
+								</button>
 							</form>
 						</div>
 					</div>

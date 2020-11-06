@@ -36,7 +36,6 @@ class Home extends Component {
 							<div className="col-lg-8 col-md-10 mx-auto">
 								<div className="post-heading">
 									<h1>{this.state.sanpham.ten_sp}</h1>
-									<h2 className="subheading"></h2>
 									<span className="meta">
 										Posted by <a href="#!">Admin</a> on {this.state.sanpham.created_at}
 									</span>
